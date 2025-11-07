@@ -1,3 +1,9 @@
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => preloader.classList.add("hidden"), 800);
+});
+
 // --- Helper: cargar imágenes desde data-src ---
 document.addEventListener('DOMContentLoaded',()=>{
 document.querySelectorAll('#gallery img').forEach(img => {
@@ -8,7 +14,7 @@ loadResponses();
 
 // -- Cuenta regresiva ---
 // Configura la fecha de la boda (ajusta aquí)
-const weddingDate = new Date("Jan 15, 2026 00:00:00").getTime();
+const weddingDate = new Date("Dec 18, 2025 00:00:00").getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();

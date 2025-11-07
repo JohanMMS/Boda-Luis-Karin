@@ -1,374 +1,357 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* Fuentes elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400&display=swap');
 
-html {
+:root {
+  --primary: #fffaf9;
+  --accent: #7BA66A;   /* tono romántico rosado */
+  --text: #4a3f3f;
+  --muted: #a99f9f;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Playfair Display', serif;
+  background: var(--primary);
+  color: var(--text);
   scroll-behavior: smooth;
-}
-
-/*cuenta regresiva*/
-.hero-section {
-  background: linear-gradient(120deg, #fce4ec, #fff);  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  padding: 0 20px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  
-}
-
-.hero-content {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
-  max-width: 450px;
-  color: #fce4ec;
-}
-
-.hero-content h1 {
-  font-family: 'Great Vibes', cursive;
-  color: #e91e63;
-  font-size: 4rem;
-  margin-bottom: 10px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 1.2rem;
-  align-items: center;
-  
-}
-
-.countdown div {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px 25px;
-  border-radius: 10px;
-  backdrop-filter: blur(4px);
-  transition: transform 0.3s ease;
-  
-}
-
-.countdown div:hover {
-  transform: scale(1.1);
-}
-/*COLOR DE LOS NUMEROS DE CUENTA REGRESIVA*/
-.countdown span {
-  display: block;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #b35de8;
-  
-}
-/* === IMÁGENES LATERALES === */
-.side-img {
-  width: 25%;
-  max-width: 400px;
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  transition: transform 0.5s ease, filter 0.3s ease;
-  position: relative;
-  z-index:2;
-}
-
-.side-img:hover {
-  transform: scale(1.08) rotate(1deg);
-  filter: brightness(1.1);
-}
-
-/* === VERSIÓN MÓVIL === */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 20px;
-  }
-
-  .side-img {
-    width: 70%;
-    max-width: 250px;
-  }
-}
-/*fin*/
-
-/**/
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* tres columnas iguales */
-  align-items: center;
-  justify-items: center;
-  gap: 30px;
-  padding: 60px 5%;
-  position: relative;
-  gap: 40px;
-  flex-wrap: nowrap; /* <- evita que se bajen los elementos */
+  line-height: 1.6;
+  /* Efecto inicial al cargar */
 }
 
 
-.side-img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-
-.side-img:hover {
-  transform: scale(1.9);
-}
-
-.hero-content {
-  max-width: 500px;
-}
-
-.hero-content h1 {
-  font-family: 'Great Vibes', cursive;
-  color: #e91e63;
-  font-size: 4rem;
-  margin-bottom: 10px;
-}
-
-/* Versión móvil */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-  .side-img {
-    width: 70%;
-    max-width: 250px;
-  }
-}
-/**/
-
-/*al pasar el cursor la animacion del logo*/
-.navbar a:hover {
-  color: #e91e63;
-  transform: translateY(-3px); /* sube un poquito */
-}
-
-/* --- Animación para el logo --- */
-.logo {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  color: #b35de8;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.logo:hover {
-  transform: scale(1.05) rotate(-2deg); /* movimiento suave */
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-}
-/*efecto al pasar el cursor*/
-nav a {
-  position: relative;
-  color: white;
-  transition: color 0.3s ease;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background-color: #ff9bb3;
-  transition: width 0.3s ease;
-}
-
-nav a:hover {
-  color: #ffb8c9;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-/*fin*/
+/* 🔸 NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(6px);
-  border-bottom: 2px solid #fce4ec;
-  z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar.scrolled {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-/*imagenes alineadas con el cronometro*/
-
-
-/* Ícono del anillo */
-.emo {
-  font-size: 2rem;
-  margin-left: 10px;
-}
-
-/* Menú principal */
-.menu {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   display: flex;
-  gap: 30px;
-}
-
-/* Enlaces del menú */
-.menu a {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-/* Efecto hover en los enlaces */
-.menu a:hover {
-  color: #d36ad8;
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #fffafc;
-  text-align: center;
-}
-.hero div h1{
-  text-align: center;
-}
-.hero {
-  background: white;
-  padding: 100px 20px;
-  color: rgb(199, 26, 26);
-  
-}
-
-footer{
-  color: white;
-  padding: 20px;
-  font-size: 2em;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 15px 60px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
+  padding: 14px 50px;
   z-index: 1000;
+  backdrop-filter: blur(6px);
+  gap: 40px;  
 }
 
-.brand {
+.navbar .brand {
   font-family: 'Great Vibes', cursive;
-  font-size: 50px;
-  color: #b35de8;
-  display: flex;
-}
-
-.emo {
-  font-size: 70px;
-}
-
-.menu {
-  margin: 0 auto;
-  display: flex;
-  gap: 50px;
-  font-family: Times New Roman;
-}
-
-.menu a {
+  font-size: 3.5rem;
+  color: var(--accent);
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  font-size: 17px;
+  letter-spacing: 4px;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+
+.navbar .menu {
+  display: flex;
+  justify-content: flex-start; /* mueve el menú a la izquierda */
+  gap: 30px;
+  width: 70%; /* ocupa todo el ancho */
+  padding-left: 100px; /* ajusta este valor según lo que necesites */
+}
+
+.navbar .menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 20px;
+  font-family: 'Poppins', cursive;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.menu a:hover {
-  color: #e85da2;
+.navbar .menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent, #a6782d); /* puedes cambiar el color */
+  transition: width 0.3s ease;
 }
 
-/* ===== HERO ===== */
-/*imagenes de la seccion informacion*/
+.navbar .menu a:hover::after {
+  width: 100%;
+}
 
+.navbar .menu a:hover {
+  color: var(--accent);
+}
+
+/* Menú móvil */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+  .navbar .menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background: white;
+    padding: 12px 0;
+    text-align: center;
+  }
+  .navbar .menu.active {
+    display: flex;
+  }
+  .navbar .toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.7em;
+    color: var(--accent);
+  }
+}
+
+/* Aplica al logo o título principal */
+.brand{
+  position: relative;
+  display: inline-block;
+  color: var(--accent);
+  overflow: hidden;
+}
+
+/* Efecto de brillo tipo ola */
+.brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.8) 50%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 8s infinite;
+}
+/* Animación de la ola */
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* 🔸 HERO */
 .hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+    url('Imagenes/imagen7.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
-  background: #ffe9f3;
-  font-family: 'Open Sans', sans-serif;
+  padding: 0 20px;
+  margin-top: 80px;
 }
 
 .hero h1 {
-  text-align: left;
-  font-family: 'Great Vibes', arial;
-  font-size: 80px;
-  color:  #b35de8;
+  font-family: 'Great Vibes', cursive;
+  font-size: 10rem; /* ajusta según tu diseño */
+  font-weight: 400; /* más delgado y elegante */
+  color: var(--accent);
+  letter-spacing: 1px; /* le da un toque fino */
 }
 
 .hero p {
-  font-size: 18px;
-  color: #444;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  margin-top: 15px;
+  color:#778899;
 }
 
-.fecha {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
+/* 🔸 CONTADOR */
+.countdown {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ===== OTROS ESTILOS ===== */
-.contador, .info, .ubicacion, footer {
+.countdown div {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 20px 25px;
   text-align: center;
-  margin: 40px auto;
-  font-family: 'Open Sans', sans-serif;
+  color: #3e3e3e;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 3s ease-in-out infinite;
 }
 
+.countdown div:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.countdown span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--accent); /* tono verde elegante tipo boda */
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.countdown p {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: var(--muted);
+  font-family: 'Poppins', sans-serif;
+}
+/* Animación elegante tipo flotación */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* 🔸 SECCIONES GENERALES */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-family: cursive;
+  font-size: 2em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+}
+
+p, label {
+  font-family: 'Poppins', sans-serif;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1em;
+}
+
+/* 🔸 GRID */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.cols-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* 🔸 CARD */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* 🔸 FORMULARIO */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+input, select, textarea, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #c18686;
+}
+
+/* 🔸 FOOTER */
 footer {
-  padding: 20px 0;
-  color: #555;
+  background: white;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9em;
+  text-align: center;
+  border-top: 1px solid #eee;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
-  }
-
-  .menu {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
-  .logo {
-    font-size: 2.4rem;
-  }
+/* PRELOADER CSS - agregar al final de tu estilo.css */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #e8decf; /* fondo crema suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
 }
+
+#preloader img {
+  width: 200px;
+  height: auto;
+  animation: fadeIn 3s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.6; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1.05); }
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
