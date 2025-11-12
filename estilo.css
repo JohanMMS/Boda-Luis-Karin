@@ -1078,143 +1078,109 @@ footer {
 }
 
 
-
-
-/* 🌐 ESTILOS RESPONSIVE */
-
-/* --- Ajustes generales --- */
-body {
-  overflow-x: hidden; /* Evita el desplazamiento lateral en móviles */
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* --- SECCIÓN NOVIOS --- */
-#novios {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  gap: 20px;
-}
-
-#novios .novio, 
-#novios .novia {
-  width: 45%;
-  min-width: 280px;
-}
-
-/* --- SECCIÓN HISTORIA --- */
-.historia-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  align-items: center;
-}
-
-.historia-item {
-  text-align: center;
-}
-
-.historia-item img {
-  border: 8px solid #fff;
-  border-radius: 10px;
-  transition: transform 0.4s;
-}
-
-.historia-item img:hover {
-  transform: rotate(3deg) scale(1.05);
-}
-
-/* En móviles, poner una sola columna */
+/* ======== ESTILOS RESPONSIVOS PARA CELULAR ======== */
 @media (max-width: 768px) {
+
+  /* Ajuste general del cuerpo */
+  body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header nav ul li {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .contador {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contador div {
+    width: 90%;
+  }
+
+  /* ===== Sección de los novios ===== */
+  .novios {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .novios img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .novios .descripcion {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* ===== Sección de historia ===== */
   .historia-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .historia-item {
+    width: 90%;
+    margin: auto;
+  }
+
+  /* ===== Galería ===== */
+  .galeria {
+    padding: 20px;
+  }
+
+  .galeria img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ===== Regalos ===== */
+  .qr-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qr-item {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-/* --- SECCIÓN GALERÍA --- */
-.galeria {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  padding: 10px;
-  scroll-behavior: smooth;
-}
-
-.galeria img {
-  flex-shrink: 0;
-  width: 250px;
-  border: 5px solid white;
-  border-radius: 10px;
-  transition: transform 0.4s ease;
-}
-
-.galeria img:hover {
-  transform: scale(1.1);
-}
-
-/* --- SECCIÓN FORMULARIO --- */
-.asistencia-contenedor {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.asistencia-formulario,
-.asistencia-info {
-  flex: 1;
-  min-width: 300px;
-}
-
-form input,
-form select,
-form textarea,
-form button {
-  width: 100%;
-  font-size: 1rem;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-/* --- SECCIÓN REGALOS --- */
-.qr-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.qr-item {
-  width: 250px;
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
-/* --- Ajustes para pantallas muy pequeñas --- */
-@media (max-width: 480px) {
-  h1, h2, h3 {
-    font-size: 1.3rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  form button {
-    padding: 12px;
-  }
-}
