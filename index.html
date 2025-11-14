@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Karin & Luis — Nuestra Boda</title>
-  <meta name="description" content="Boda de Karin y Luis — 15 de enero de 2026">
   <link rel="stylesheet" href="estilo.css">
   <link href="https://fonts.googleapis.com/css2?family=A  llura&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,20 +13,27 @@
   <img src="Imagenes/fondo-animado1.png" alt="Cargando...">
 </div>
 <body>
+
   <!-- 🌸 NAVBAR -->
-  <nav class="navbar">
-    <a href="#inicio" class="brand">Luis &nbsp;y Karin</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-    <div class="menu">
-      <a href="#inicio">Inicio</a>
-      <a href="#novios">Los Novios</a>
-      <a href="#historia">Nuestra Historia</a>
-      <a href="#asistencias">Asistencia</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="#regalos">Regalos</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-  </nav>
+<nav class="navbar">
+  
+  <a href="#inicio" class="brand">Luis &nbsp;y Karin</a>
+
+  <!-- Botón hamburguesa -->
+  <button class="nav-toggle" id="navToggle">☰</button>
+
+  <!-- Menú -->
+  <div class="menu" id="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#novios">Los Novios</a>
+    <a href="#historia">Nuestra Historia</a>
+    <a href="#asistencias">Asistencia</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#regalos">Regalos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
 
   <!-- 🌸 SECCIÓN PRINCIPAL -->
   <section id="inicio" class="hero">
@@ -307,6 +313,7 @@
 
 <!-- Firebase -->
 <script type="module">
+  
   // Importar Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
@@ -358,6 +365,7 @@
   });
 </script>
 
- <script src="script1.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>

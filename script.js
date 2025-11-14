@@ -102,8 +102,6 @@ modal.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-
-
   // --- Scroll con flechas galeria ---
   const galeria = document.getElementById("galeriaScroll");
   document.getElementById("flechaDer").onclick = () => 
@@ -123,7 +121,6 @@ modal.addEventListener("click", () => {
       lightboxImg.src = img.src;
     });
   });
-
   // Cerrar lightbox
   cerrar.onclick = () => lightbox.style.display = "none";
   lightbox.onclick = (e) => {
@@ -132,16 +129,20 @@ modal.addEventListener("click", () => {
 
 
 
-// Menú hamburguesa: mostrar/ocultar en móvil
-// menú hamburguesa
-(function(){
-  const navToggle = document.getElementById('navToggle');
-  const menu = document.querySelector('.navbar .menu');
-  if (!navToggle || !menu) return;
-  navToggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
+
+const navToggle = document.getElementById("navToggle");
+const menu = document.getElementById("menu");
+
+navToggle.addEventListener("click", () => {
+  menu.classList.toggle("show");
+});
+
+document.querySelectorAll("#menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("show");
   });
-  menu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=> menu.classList.remove('open'));
-  });
-})();
+});
+
+
+
+

@@ -26,70 +26,126 @@ body {
   overflow-x: hidden; /* Evita desplazamiento lateral */
 
 }
-/*Contenedor de la pagina*/
-.contenedor{
-  width: 100%;
-  max-width: 100%;
-  margin:0 auto;
-  overflow: hidden;
-}
 
 /* 🔸 NAVBAR */
+/* --- NAV BASE --- */
 .navbar {
-  position: fixed;
-  top: 0cm;
-  left: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 14px 50px;
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-  gap: 40px;  
+  padding: 15px 20px;
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
+
+
+/* BOTÓN HAMBURGUESA */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #416d3d;
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  z-index: 2000;
+}
+
+/* MODO MÓVIL */
+@media (max-width: 900px) {
+
+  /* Mostrar botón hamburguesa */
+  .nav-toggle {
+    display: block !important;
+  }
+
+  /* Ocultar menú por defecto en móvil */
+  .menu {
+    display: none !important;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+
+    /* 🌿 Fondo verde temático elegante */
+    background: rgba(212, 227, 211, 0.95); /* Verde suave semi opaco */
+
+    padding: 15px 18px;
+
+    /* Bordes elegantes */
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    /* Sombras suaves */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    z-index: 1500;
+    width: 150px;
+
+    /* Animación suave */
+    transform-origin: top right;
+    animation: fadeInMenu 0.25s ease-out;
+  }
+
+  /* Animación elegante */
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 5px;
+    border-radius: 6px;
+    transition: 0.25s;
+}
+
+/* Hover elegante */
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    padding-left: 10px;
+}
+
+  /* Mostrar menú cuando se activa */
+  .menu.show {
+    display: flex !important;
+  }
+
+  /* Hacer marca más pequeña */
+  .navbar .brand {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+}
+
+
 
 .navbar .brand {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
+  font-size: 2.6rem;
   color: var(--accent);
   text-decoration: none;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   align-items: center;
   margin-bottom: 10px;
   justify-content: flex-start;
 }
 
-/* Botón hamburguesa (oculto en desktop) */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  font-size: 26px;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-/* Cuando esté visible en móvil */
-@media (max-width: 991px) {
-  .nav-toggle { display: inline-flex; }
-  .navbar .menu {
-    position: absolute;
-    top: 64px;
-    right: 16px;
-    background: rgba(255,255,255,0.98);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    border-radius: 12px;
-    flex-direction: column;
-    padding: 12px;
-    gap: 8px;
-    display: none; /* se mostrará por JS */
-    z-index: 1100;
-  }
-  .navbar .menu.open { display: flex; }
-}
 
 
 .navbar .menu {
@@ -296,6 +352,23 @@ body {
   font-family: 'Poppins', sans-serif;
   color: black 
 }
+
+@media (max-width: 600px) {
+  .countdown {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .countdown span {
+    font-size: 1.5rem !important;
+  }
+
+  .countdown div {
+    width: 80px;
+    height: 100px;
+    padding: 10px;
+  }
+}
 /* Animación elegante tipo flotación */
 @keyframes float {
   0%, 100% {
@@ -428,11 +501,6 @@ p, label {
 }
 
 
-.historia{
-  background-color: ;
-}
-
-
 /* ===== HISTORIA - LÍNEA DE TIEMPO ===== */
 /* --- SECCIÓN HISTORIA --- */
 .historia {
@@ -541,11 +609,11 @@ p, label {
   -webkit-overflow-scrolling: touch;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.galeria-scroll {
+  -webkit-overflow-scrolling: touch; /* scroll más suave en iOS */
+  scroll-behavior: smooth;
 }
+
 
 /* Fotos */
 .foto-galeria {
