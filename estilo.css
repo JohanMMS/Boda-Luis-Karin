@@ -62,12 +62,44 @@ body {
   justify-content: flex-start;
 }
 
+/* Botón hamburguesa (oculto en desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Cuando esté visible en móvil */
+@media (max-width: 991px) {
+  .nav-toggle { display: inline-flex; }
+  .navbar .menu {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    flex-direction: column;
+    padding: 12px;
+    gap: 8px;
+    display: none; /* se mostrará por JS */
+    z-index: 1100;
+  }
+  .navbar .menu.open { display: flex; }
+}
+
+
 .navbar .menu {
   display: flex;
-  justify-content: flex-start; /* mueve el menú a la izquierda */
-  gap: 30px;
-  width: 70%; /* ocupa todo el ancho */
-  padding-left: 100px; /* ajusta este valor según lo que necesites */
+  justify-content: center;
+  gap: 20px;
+  width: auto;         /* No forzar ancho fijo */
+  padding-left: 0;     /* Quitar padding lateral grande */
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar .menu a {
@@ -116,7 +148,7 @@ body {
   position: absolute;
   top: 0;
   left: -75%;
-  width: 50%;
+  width: 100%;
   height: 100%;
   background: linear-gradient(
     120deg, 
@@ -164,8 +196,12 @@ body {
 }
 
 .hero h1 {
-  transform: translateY(-80px);
-  animation: bajar 1.8s ease-out forwards;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 8vw, 6.5rem); /* escala según pantalla */
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 /* Keyframes para el efecto */
@@ -323,7 +359,7 @@ p, label {
   overflow: hidden;
   border-radius: 20px;
   width: 300px;
-  height: 380px;
+  height: 300px;
   flex-shrink: 0;
 }
 
@@ -502,6 +538,13 @@ p, label {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 20px;
+  -webkit-overflow-scrolling: touch;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Fotos */
@@ -599,10 +642,10 @@ p, label {
 .asistencia-contenedor {
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
-  padding: 20px 200px;   
+  padding: 20px 24px; /* CORREGIDO: sin paddings gigantes */
 }
 
 .asistencia-info {
@@ -633,12 +676,11 @@ p, label {
 /* FORMULARIO SIN BORDE Y A PANTALLA COMPLETA EN SU COLUMNA */
 .asistencia-formulario {
   flex: 1;
-  min-width: 320px;
-  background: gre;  /* Sin fondo */
-  padding: 20px 80px;          /* Espaciado vertical */
-  box-shadow: none;         /* Sin sombra */
-  border-radius: 0;         /* Sin bordes redondeados */
-  background-image: url();
+  min-width: 280px;
+  background: transparent; /* corregido */
+  padding: 18px 24px;      /* menos padding */
+  box-shadow: none;
+  border-radius: 8px;
 }
 
 .asistencia-formulario h3 {
@@ -651,11 +693,10 @@ p, label {
 
 .asistencia-formulario label {
   display: block;
-  margin-bottom: 40 px;
+  margin-bottom: 12px; /* antes tenías "40 px" (erróneo) */
   color: #444;
   font-weight: 500;
   text-align: left;
-  outline: none;
 }
 
 .asistencia-formulario input,
@@ -1043,11 +1084,8 @@ footer {
 
 
 
-/* =========================
+/* 
    PATCH RESPONSIVE GLOBAL
-   Pegar al final de estilo.css
-   ========================= */
-
 /* Contenedor max para centrar secciones */
 .container-max {
   max-width: 1100px;
@@ -1104,56 +1142,29 @@ img {
 .asistencia-formulario { padding: 18px !important; }
 
 /* Reglas generales para móviles (smartphones) */
+/* =========================
+   Ajustes responsive generales
+   ========================= */
+
 @media (max-width: 991px) {
-
-  /* NAV: mostrar botón hamburguesa y menú vertical */
-  .nav-toggle { display: inline-flex; }
-  .navbar { align-items: center; padding: 10px 14px; }
-  .navbar .menu {
-    position: absolute;
-    top: 64px;
-    right: 16px;
-    background: rgba(255,255,255,0.98);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    border-radius: 12px;
-    flex-direction: column;
-    padding: 12px;
-    gap: 10px;
-    display: none; /* aparece con .open */
-    z-index: 1100;
-  }
-  .navbar .menu a { font-size: 16px; padding: 8px 12px; display: block; }
-
-  /* HERO: tamaños más pequeños */
-  .hero h1 { font-size: 3.2rem; line-height: 1.02; }
-  .hero p { font-size: 1rem; padding: 0 8px; }
-
-  /* NOVIOS: apilar verticalmente */
-  .novio { flex-direction: column !important; gap: 20px; }
-  .novio-imagen { width: 85%; height: auto; max-width: 420px; }
-
-  /* TIMELINE: ajustar line-left y padding */
-  .timeline { padding-left: 18px; margin: 0 8px; }
+  .hero { padding: 20px; margin-top: 70px; }
+  .hero p { font-size: 1rem; }
+  .countdown span { font-size: 2rem; }
+  .novio { flex-direction: column; gap: 18px; }
+  .novio-imagen { width: 90%; height: auto; max-width: 420px; }
+  .foto-galeria { width: 180px; height: 240px; }
+  .asistencia-contenedor { padding: 16px; flex-direction: column; }
+  .asistencia-formulario { padding: 14px; }
+  section { padding: 40px 14px; }
+  .timeline { padding-left: 18px; }
   .timeline::before { left: 12px; }
-
-  /* GALERÍA: hacer las imágenes más pequeñas y facilitar scroll táctil */
-  .foto-galeria { width: 200px; height: 260px; }
-  .flecha-izq, .flecha-der { left: 6px; right: 6px; font-size: 22px; padding: 8px; }
-
-  /* ASISTENCIA: columnas apiladas */
-  .asistencia-contenedor { flex-direction: column; padding: 16px; }
-  .asistencia-info, .asistencia-formulario { width: 100%; padding: 0; }
-
-  /* FOOTER: centrar contenido */
-  .footer-content { flex-direction: column; text-align: center; gap: 20px; }
 }
 
-/* Reglas para tablets (anchos medios) */
 @media (min-width: 992px) and (max-width: 1200px) {
   .hero h1 { font-size: 5.2rem; }
-  .novio-imagen { width: 320px; height: 380px; }
   .asistencia-contenedor { padding: 20px 40px; }
 }
+
 
 /* Evitar que elementos con ancho fijo rompan el layout */
 * { word-break: break-word; }

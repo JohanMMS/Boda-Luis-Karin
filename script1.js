@@ -133,27 +133,15 @@ modal.addEventListener("click", () => {
 
 
 // Menú hamburguesa: mostrar/ocultar en móvil
+// menú hamburguesa
 (function(){
   const navToggle = document.getElementById('navToggle');
   const menu = document.querySelector('.navbar .menu');
   if (!navToggle || !menu) return;
   navToggle.addEventListener('click', () => {
     menu.classList.toggle('open');
-    // alternar display con inline style para compatibilidad
-    if (menu.classList.contains('open')) {
-      menu.style.display = 'flex';
-    } else {
-      menu.style.display = 'none';
-    }
   });
-
-  // Cerrar menú al hacer click en un enlace (mejor UX)
   menu.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click', ()=> {
-      if (menu.classList.contains('open')) {
-        menu.classList.remove('open');
-        menu.style.display = 'none';
-      }
-    });
+    a.addEventListener('click', ()=> menu.classList.remove('open'));
   });
 })();
