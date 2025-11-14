@@ -26,6 +26,13 @@ body {
   overflow-x: hidden; /* Evita desplazamiento lateral */
 
 }
+/*Contenedor de la pagina*/
+.contenedor{
+  width: 100%;
+  max-width: 100%;
+  margin:0 auto;
+  overflow: hidden;
+}
 
 /* 🔸 NAVBAR */
 .navbar {
@@ -94,48 +101,6 @@ body {
   color: var(--accent);
 }
 
-/* Menú móvil */
-/* Asegura que el sitio se vea bien en pantallas pequeñas */
-@media (max-width: 768px) {
-  header.hero {
-    flex-direction: column;      /* Apila elementos en lugar de alinearlos en fila */
-    text-align: center;
-    padding: 20px;
-  }
-
-  header.hero h1 {
-    font-size: 1.8rem;           /* Reduce tamaño de fuente */
-  }
-
-  header.hero p {
-    font-size: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;      /* Menú vertical en celular */
-    align-items: center;
-    gap: 10px;
-  }
-
-  section {
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;             /* Las imágenes no sobresalen del ancho */
-    height: auto;
-  }
-}
-/* Opcional: para pantallas muy pequeñas (celulares chicos) */
-@media (max-width: 480px) {
-  header.hero h1 {
-    font-size: 1.4rem;
-  }
-
-  header.hero p {
-    font-size: 0.9rem;
-  }
-}
 
 /* Aplica al logo o título principal */
 .brand{
@@ -399,17 +364,6 @@ p, label {
   flex-direction: row-reverse;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .novio {
-    flex-direction: column;
-  }
-  .novio-descripcion {
-    text-align: center;
-  }
-}
-
-
 
 
 /* 🔸 GRID */
@@ -443,153 +397,193 @@ p, label {
 }
 
 
-/* ===== HISTORIA ===== */
+/* ===== HISTORIA - LÍNEA DE TIEMPO ===== */
+/* --- SECCIÓN HISTORIA --- */
 .historia {
-  text-align: center;
   padding: 60px 20px;
-  background-color: #f2f5eb;
+  background: #f2f5eb;
+  text-align: center;
 }
 
 .historia h2 {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Cuadrícula 2x2 */
-.momentos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  justify-content: center;
-  align-items: stretch;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* Diseño individual */
-.momento {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.momento img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 8px solid transparent;
-  transition: all 0.4s ease;
-}
-
-.momento:hover img {
-  transform: rotate(-3deg) scale(1.05);
-  border: 8px solid #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.texto {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.texto h3 {
-  font-size: 1.3em;
-  color: var(--accent);
-}
-
-.texto p {
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.6;
-}
-
-
-/* === GALERÍA CON EFECTO FLOTANTE === */
-.galeria {
-  text-align: center;
-  padding: 80px 20px;
-  background-color: #f2f5eb;
-}
-
-.galeria h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
   color: var(--accent);
   margin-bottom: 40px;
-  font-size: 2em;
 }
 
-/* Contenedor de imágenes */
-.galeria-fotos {
+/* Línea vertical */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 100px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #65a26f;
+  border-radius: 10px;
+}
+
+/* Items */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+.timeline-item:nth-child(5) { animation-delay: 1.0s; }
+.timeline-item:nth-child(6) { animation-delay: 1.2s; }
+
+/* Puntos */
+.timeline-date {
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.timeline-content {
+  background: white;
+  padding: 18px 20px;
+  border-radius: 15px;
+  border-left: 4px solid #2e5e3f;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  font-size: 1rem;
+  color: #444;
+  font-family: "Georgia", serif;
+}
+
+/* Animación */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* --- SECCIÓN GALERÍA --- */
+.galeria {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.galeria-container {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 25px;
+  max-width: 90%;
+  margin: auto;
 }
 
-/* Imágenes con estilo */
-.galeria-fotos img {
-  width: 400px;
-  height: 300px;
+/* Scroll horizontal */
+.galeria-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px;
+}
+
+/* Fotos */
+.foto-galeria {
+  width: 260px;
+  height: 350px;
   object-fit: cover;
   border-radius: 15px;
   border: 4px solid white;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Movimiento elegante */
+.foto-galeria:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Flechas */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  padding: 12px;
+  font-size: 30px;
+  color: #2e5e3f;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
+}
+
+.flecha:hover {
+  background: white;
+}
+
+.flecha-izq { left: -20px; }
+.flecha-der { right: -20px; }
+
+/* --- LIGHTBOX (imagen ampliada) --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 15px;
+  border: 5px solid white;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Botón cerrar */
+.cerrar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 50px;
+  color: white;
   cursor: pointer;
 }
-
-/* Efecto de hover */
-.galeria-fotos img:hover {
-  transform: scale(1.08);
-}
-
-/* Animaciones desordenadas */
-.flotante:nth-child(1) {
-  animation: flotar1 6s ease-in-out infinite alternate;
-}
-.flotante:nth-child(2) {
-  animation: flotar2 7s ease-in-out infinite alternate;
-}
-.flotante:nth-child(3) {
-  animation: flotar3 5.5s ease-in-out infinite alternate;
-}
-.flotante:nth-child(4) {
-  animation: flotar4 8s ease-in-out infinite alternate;
-}
-.flotante:nth-child(5) {
-  animation: flotar2 6.5s ease-in-out infinite alternate;
-}
-.flotante:nth-child(6) {
-  animation: flotar3 7.5s ease-in-out infinite alternate;
-}
-
-/* --- Animaciones diferentes para cada imagen --- */
-@keyframes flotar1 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(10px, -10px); }
-}
-
-@keyframes flotar2 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-10px, 10px); }
-}
-
-@keyframes flotar3 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(12px, 5px); }
-}
-
-@keyframes flotar4 {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-8px, -12px); }
-}
-
 
 
 
@@ -762,16 +756,6 @@ select:focus {
   margin-bottom: 30px;
 }
 
-.imagen-ubicacion {
-  width: 10%;
-  height: 10%;
-  max-width: 600px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-  border: 0px solid var(--accent); /* Marco elegante y sutil */
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
 
 .imagen-ubicacion:hover {
   transform: scale(1.03); /* Pequeño zoom elegante */
@@ -781,7 +765,7 @@ select:focus {
 .descripcion-ubicacion {
   max-width: 700px;
   margin: 0 auto 30px;
-  font-size: 18px;
+  font-size: 28px;
   line-height: 1.8;
 }
 
@@ -802,17 +786,6 @@ select:focus {
   transform: scale(1.05);
 }
 
-
-/* Adaptación para móvil */
-@media (max-width: 768px) {
-  .ubicacion-contenido {
-    flex-direction: column;
-  }
-
-  .descripcion-ubicacion {
-    text-align: center;
-  }
-}
 
 
 /* 🔸 FOOTER */
@@ -929,7 +902,7 @@ footer {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   position: relative;
-  background-color: #7BA66A;
+  background-color: #a5ba9c;
   background-image: url();
 }
 
@@ -967,7 +940,7 @@ footer {
 
 .footer-icons a {
   background-color: #7BA66A;
-  color: #7BA66A;
+  color: white;
   border-radius: 50%;
   padding: 15px;
   font-size: 2.5rem;
@@ -976,7 +949,7 @@ footer {
 
 .footer-icons a:hover {
   background-color: #fff;
-  color: #7BA66A;
+  color: #a5ba9c;
 }
 
 .footer-right {
@@ -1005,7 +978,7 @@ footer {
 }
 
 .footer-right i {
-  color: #fff;
+  color: #a5ba9c;
 }
 
 .footer-bottom  {
@@ -1017,17 +990,6 @@ footer {
   text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-right {
-    text-align: center;
-  }
-}
 
 .footer a {
   color: #fff; /* cambia el color del texto de los enlaces */
@@ -1078,109 +1040,123 @@ footer {
 }
 
 
-/* ======== ESTILOS RESPONSIVOS PARA CELULAR ======== */
-@media (max-width: 768px) {
 
-  /* Ajuste general del cuerpo */
-  body {
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-  }
 
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
-  header nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* =========================
+   PATCH RESPONSIVE GLOBAL
+   Pegar al final de estilo.css
+   ========================= */
 
-  header nav ul li {
-    display: block;
-    margin: 5px 0;
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .contador {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .contador div {
-    width: 90%;
-  }
-
-  /* ===== Sección de los novios ===== */
-  .novios {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .novios img {
-    width: 80%;
-    height: auto;
-    margin-bottom: 15px;
-  }
-
-  .novios .descripcion {
-    width: 90%;
-    margin: auto;
-  }
-
-  /* ===== Sección de historia ===== */
-  .historia-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .historia-item {
-    width: 90%;
-    margin: auto;
-  }
-
-  /* ===== Galería ===== */
-  .galeria {
-    padding: 20px;
-  }
-
-  .galeria img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* ===== Regalos ===== */
-  .qr-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .qr-item {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  /* ===== Footer ===== */
-  footer {
-    flex-direction: column;
-    text-align: center;
-  }
+/* Contenedor max para centrar secciones */
+.container-max {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
+/* Evita overflow por paddings grandes */
+.asistencia-contenedor {
+  padding: 20px 24px !important; /* reemplaza padding: 20px 200px; */
+}
+
+/* Imágenes: reglas globales */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Navbar: comportamiento responsivo y menú hamburguesa */
+.navbar {
+  padding: 12px 20px;
+  justify-content: space-between;
+  gap: 12px;
+}
+.navbar .brand {
+  margin: 0;
+  font-size: 2.2rem;
+}
+.navbar .menu {
+  width: auto;
+  padding-left: 0;
+  gap: 18px;
+}
+
+/* Ocultar el botón móvil por defecto */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Galería: mejora para táctil y evitar scroll lateral no deseado */
+.galeria-container { max-width: 1000px; margin: 0 auto; }
+.galeria-scroll { -webkit-overflow-scrolling: touch; }
+
+/* Timeline: reducir padding en pantallas pequeñas */
+.timeline { padding-left: 40px; max-width: 760px; }
+
+/* Formulario: quitar padding excesivo en pantallas pequeñas */
+.asistencia-formulario { padding: 18px !important; }
+
+/* Reglas generales para móviles (smartphones) */
+@media (max-width: 991px) {
+
+  /* NAV: mostrar botón hamburguesa y menú vertical */
+  .nav-toggle { display: inline-flex; }
+  .navbar { align-items: center; padding: 10px 14px; }
+  .navbar .menu {
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+    display: none; /* aparece con .open */
+    z-index: 1100;
+  }
+  .navbar .menu a { font-size: 16px; padding: 8px 12px; display: block; }
+
+  /* HERO: tamaños más pequeños */
+  .hero h1 { font-size: 3.2rem; line-height: 1.02; }
+  .hero p { font-size: 1rem; padding: 0 8px; }
+
+  /* NOVIOS: apilar verticalmente */
+  .novio { flex-direction: column !important; gap: 20px; }
+  .novio-imagen { width: 85%; height: auto; max-width: 420px; }
+
+  /* TIMELINE: ajustar line-left y padding */
+  .timeline { padding-left: 18px; margin: 0 8px; }
+  .timeline::before { left: 12px; }
+
+  /* GALERÍA: hacer las imágenes más pequeñas y facilitar scroll táctil */
+  .foto-galeria { width: 200px; height: 260px; }
+  .flecha-izq, .flecha-der { left: 6px; right: 6px; font-size: 22px; padding: 8px; }
+
+  /* ASISTENCIA: columnas apiladas */
+  .asistencia-contenedor { flex-direction: column; padding: 16px; }
+  .asistencia-info, .asistencia-formulario { width: 100%; padding: 0; }
+
+  /* FOOTER: centrar contenido */
+  .footer-content { flex-direction: column; text-align: center; gap: 20px; }
+}
+
+/* Reglas para tablets (anchos medios) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .hero h1 { font-size: 5.2rem; }
+  .novio-imagen { width: 320px; height: 380px; }
+  .asistencia-contenedor { padding: 20px 40px; }
+}
+
+/* Evitar que elementos con ancho fijo rompan el layout */
+* { word-break: break-word; }
+
+/* Small tweak: elimina padding lateral gigante que tenías en otra regla */
+.asistencia-contenedor[style] { padding: 20px 24px !important; }

@@ -2,21 +2,24 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Karin & Luis — Nuestra Boda</title>
   <meta name="description" content="Boda de Karin y Luis — 15 de enero de 2026">
   <link rel="stylesheet" href="estilo.css">
   <link href="https://fonts.googleapis.com/css2?family=A  llura&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <div id="preloader">
   <img src="Imagenes/fondo-animado1.png" alt="Cargando...">
 </div>
 <body>
+
+
   <!-- 🌸 NAVBAR -->
   <nav class="navbar">
     <a href="#inicio" class="brand">Luis &nbsp;y Karin</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
     <div class="menu">
       <a href="#inicio">Inicio</a>
       <a href="#novios">Los Novios</a>
@@ -32,13 +35,16 @@
   <section id="inicio" class="hero">
     <div class="hero-content">
       <h1>Luis &nbsp;y Karin</h1>
-      <p>Gracia que nos unió, gloria que buscamos, pacto que nos sostiene.</p>
+      <p><strong> Gracia que nos unió, gloria que buscamos, pacto que nos sostiene.</strong></p>
       <div class="countdown">
         <div><span id="days">00</span><p>Días</p></div>
         <div><span id="hours">00</span><p>Horas</p></div>
         <div><span id="minutes">00</span><p>Minutos</p></div>
         <div><span id="seconds">00</span><p>Segundos</p></div>
       </div>
+      <p>
+      <strong>Jueves, 18 de diciembre de 2025<br></strong>
+      </p>
     </div>
   </section>
 
@@ -83,67 +89,85 @@
 <!-- Sección Historia -->
 <section class="historia" id="historia">
   <h2>Nuestra Historia</h2>
-  <div class="momentos-grid">
-    <div class="momento">
-      <img src="Imagenes/be050765-5a1a-42ec-898c-d5a262a0299d.jpeg" alt="Primer encuentro">
-      <div class="texto">
-         <h3>Primer Encuentro 2016:</h3>
-        <p>Nos conocimos por primera vez en la universidad, un día que parecía común, pero que cambió nuestras vidas para siempre.
-          Dios permitió que nuestras vidas se cruzaran por primera vez.
-          Luis le predicó el evangelio a Karin, marcando el inicio de una amistad con propósito.
-        </p>
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">2016</div>
+      <div class="timeline-content">
+        <p>Nos conocimos. Luis le predicó el evangelio a Karin.</p>
       </div>
     </div>
-    <div class="momento">
-      <img src="Imagenes/2926c24b-63b0-4d5b-8fe0-1170d9ae42f8.jpeg" alt="Primera cita">
-      <div class="texto">
-        <h3>Nuestra Amistad 2019:</h3>
-        <p>Entre charlas y risas, descubrimos lo mucho que teníamos en común y lo especial que era nuestra conexión.
-          Continuamos una amistad en común con amigos de la universidad.
-          El Señor seguía tejiendo, poco a poco, los lazos de una historia que Él mismo estaba escribiendo.
-        </p>
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">2019</div>
+      <div class="timeline-content">
+        <p>Se mantuvo una amistad en común con amigos de la universidad.</p>
       </div>
     </div>
-    <div class="momento">
-      <img src="Imagenes/9d38d6aa-7af8-48d6-8683-1c69d3d37853 (2).jpeg" alt="Nuestro viaje">
-      <div class="texto">
-        <h3>Nuestra Historia de Amor (2021 - 2024):</h3>
-        <p>El tiempo pasó, y con él, nuestro cariño creció hasta convertirse en amor, un amor que Dios ha guiado y fortalecido.
-          Nuestra amistad crecía y se fortalecía al compartir momentos de edificación, fe y ánimo junto a otros amigos.
-          Dios seguía obrando en silencio, preparando nuestros corazones.
-          Iniciamos una relación guiada por propósito y fe.
-          Luis le propuso a Karin comenzar una relación, expresándole su deseo de caminar juntos hacia el matrimonio, siempre bajo la voluntad de Dios.
-        </p>
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">2020</div>
+      <div class="timeline-content">
+        <p>Karin empezó a trabajar en el Instituto Psicológico de Luis; ahí se conocieron más el uno al otro.</p>
       </div>
     </div>
-    <div class="momento">
-      <img src="Imagenes/ddbce4d6-be02-411e-ade2-61c9f5b46af9.JPG" alt="La propuesta">
-      <div class="texto">
-        <h3>El Gran Sí 2025:</h3>
-        <p>Con fe, esperanza y mucho amor, dijimos “sí” al comienzo de esta nueva etapa juntos. ¡Nuestra boda será el inicio de algo eterno!
-          Con la gracia y fidelidad de Dios, nos comprometeremos y uniremos nuestras vidas en matrimonio,
-          con la certeza de que Él es el centro de nuestra historia y el fundamento de nuestro amor.
-        </p>
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">2021 – 2022</div>
+      <div class="timeline-content">
+        <p>La amistad se fortalecía al compartir momentos de edificación y ánimo junto a amigos.</p>
       </div>
     </div>
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">2024</div>
+      <div class="timeline-content">
+        <p>Iniciaron una relación con el propósito del matrimonio.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="heart"></div>
+      <div class="timeline-date">Diciembre 2025</div>
+      <div class="timeline-content">
+        <p>Nos comprometemos y nos casaremos por la gracia de Dios.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- Sección Galería -->
-<section class="galeria" id="galeria">
+<!-- seccion galeria-->
+<section id="galeria" class="galeria">
   <h2>Galería</h2>
-  <div class="galeria-fotos">
-    <img src="Imagenes/78d82914-6356-4551-9207-4722df66951d.JPG" alt="Galería 1" class="flotante">
-    <img src="Imagenes/IMG_5506.jpeg" alt="Galería 2" class="flotante">
-    <img src="Imagenes/be050765-5a1a-42ec-898c-d5a262a0299d.jpeg" alt="Galería 3" class="flotante">
-    <img src="Imagenes/9d5acf5d-b3ae-47bc-8569-7b98063e78f2.jpeg" alt="Galería 4" class="flotante">
+
+  <div class="galeria-container">
+    <button class="flecha flecha-izq" id="flechaIzq">&#10094;</button>
+
+    <div class="galeria-scroll" id="galeriaScroll">
+      <img src="Imagenes/6ec728a3-df42-4a61-bf1e-f1ee6c4a9cc8.jpeg" alt="Foto 1" class="foto-galeria">
+      <img src="Imagenes/78d82914-6356-4551-9207-4722df66951d.JPG" alt="Foto 2" class="foto-galeria">
+      <img src="Imagenes/WhatsApp Image 2025-11-09 at 8.29.22 PM.jpeg" alt="Foto 3" class="foto-galeria">
+      <img src="Imagenes/copiawaa.JPG" alt="Foto 4" class="foto-galeria">
+      <img src="Imagenes/WhatsApp Image 2025-11-12 at 6.26.34 PM.jpeg" alt="Foto 5" class="foto-galeria">
+      <img src="Imagenes/IMG_5506.jpeg" alt="Foto 6" class="foto-galeria">
+      <img src="Imagenes/WhatsApp Image 2025-11-12 at 6.26.35 PM (1).jpeg" alt="Foto 7" class="foto-galeria">
+    </div>
+
+    <button class="flecha flecha-der" id="flechaDer">&#10095;</button>
   </div>
 </section>
 
-<!-- Modal para ampliar imagen -->
-<div id="modal" class="modal">
+<!-- Ventana Lightbox -->
+<div id="lightbox" class="lightbox">
   <span class="cerrar">&times;</span>
-  <img class="modal-contenido" id="imgAmpliada">
+  <img class="lightbox-img" id="lightboxImg">
 </div>
 
 
@@ -173,8 +197,8 @@
         <option value="No podré asistir">No podré asistir</option>
       </select>
 
-      <label for="acompanantes">Número de acompañantes</label>
-      <input type="number" id="acompanantes" name="acompanantes" placeholder="Ej. 1" >
+      <label for="acompanantes">Escribir sólo los nombres de las personas que aparecen en tu invitación personalizada. Recuerda que el aforo es limitado.</label>
+      <input type="text" id="acompanantes" name="acompanantes" >
 
       <label for="mensaje">Mensaje (opcional)</label>
       <textarea id="mensaje" name="mensaje" placeholder="Escribe un mensaje..."></textarea>
@@ -187,16 +211,14 @@
 
 
   <!-- 🌸 UBICACIÓN -->
-  <section id="ubicacion">
+<section id="ubicacion">
   <h2>Ubicación de nuestra Boda</h2>
   <h3>Cuándo y Dónde</h3>
-
-  <img src="Imagenes/iglesia.jpg"   alt="Iglesia donde será la boda" class="imagen-ubicacion">
 
   <div class="descripcion-ubicacion">
     <p>
       Jueves, 18 de diciembre de 2025 <br>
-      <strong>Invitación 3:30 | Inicio: 16:00 <br></strong> 
+      <strong>Inicio: 16:00pm <br></strong> 
       <br>
       Dirección:  Seminario Biblico Bautista <br>
       Km. 25 Panamericana Norte (Altura del peaje de Puente Piedra)
@@ -214,7 +236,7 @@
 
 
   <!-- 🌸 REGALOS -->
-  <section id="regalos" class="regalos">
+<section id="regalos" class="regalos">
   <h2>Regalos</h2>
   <p class="descripcion">
     Queremos compartir con ustedes un detalle importante: como no estaremos viviendo en Perú, agradeceríamos que los regalos se realicen en dinero en efectivo o mediante depósito bancario, en lugar de obsequios materiales.
@@ -256,11 +278,11 @@
   <footer id="contacto" class="footer" >
   <div class="footer-content">
     <div class="footer-left">
-      <h2>Karin & Luis</h2>
+      <h2>Luis y Karin</h2>
       <p>Con amor y gratitud, Karin & Luis — Lima, Perú | Noviembre 2025</p>
 
       <div class="footer-icons">
-        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=CllgCJTGmXcRtbtvjfCMLZltRxGGrSPzxKSQtjKjcQRXCdpjdpZTNVQXptFwwRdXPQzVzHSVFGq" title="Correo">
+        <a href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=CllgCJTGmXcRtbtvjfCMLZltRxGGrSPzxKSQtjKjcQRXCdpjdpZTNVQXptFwwRdXPQzVzHSVFGq" title="Correo" class="icono-gmail">
           <i class="fas fa-envelope"></i>
         </a>
         <a href="https://wa.me/12404446242" target="_blank" title="WhatsApp Karin">
@@ -283,7 +305,7 @@
   <div class="footer-bottom">
     <p>© 2025 Karin & Luis | Todos los derechos reservados.</p>
   </div>
-</footer>
+  </footer>
 
 <!-- Firebase -->
 <script type="module">
@@ -338,7 +360,7 @@
   });
 </script>
 
-
  <script src="script1.js"></script>
+
 </body>
 </html>

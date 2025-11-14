@@ -104,4 +104,56 @@ modal.addEventListener("click", () => {
 
 
 
+  // --- Scroll con flechas galeria ---
+  const galeria = document.getElementById("galeriaScroll");
+  document.getElementById("flechaDer").onclick = () => 
+    galeria.scrollBy({ left: 300, behavior: "smooth" });
 
+  document.getElementById("flechaIzq").onclick = () => 
+    galeria.scrollBy({ left: -300, behavior: "smooth" });
+
+  // --- Lightbox ---
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const cerrar = document.querySelector(".cerrar");
+
+  document.querySelectorAll(".foto-galeria").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Cerrar lightbox
+  cerrar.onclick = () => lightbox.style.display = "none";
+  lightbox.onclick = (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  };
+
+
+
+// Menú hamburguesa: mostrar/ocultar en móvil
+(function(){
+  const navToggle = document.getElementById('navToggle');
+  const menu = document.querySelector('.navbar .menu');
+  if (!navToggle || !menu) return;
+  navToggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    // alternar display con inline style para compatibilidad
+    if (menu.classList.contains('open')) {
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+
+  // Cerrar menú al hacer click en un enlace (mejor UX)
+  menu.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=> {
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        menu.style.display = 'none';
+      }
+    });
+  });
+})();
