@@ -143,6 +143,12 @@ document.querySelectorAll("#menu a").forEach(link => {
   });
 });
 
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('show');
+  });
+});
+
 
 
 

@@ -1,4 +1,7 @@
 /* Fuentes elegantes */
+html {
+  scroll-behavior: smooth;
+}
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400&display=swap');
 
 :root {
@@ -225,9 +228,7 @@ body {
 }
 
 /* 🔸 HERO */
-#inicio {
-  background-image: url(Imagenes/imagen7.jpg);
-}
+
 .hero {
   min-height: 100vh;
   background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
@@ -241,6 +242,7 @@ body {
   margin-top: 80px;
   opacity: 0;
   animation: aparecerDual 1.8s ease-out forwards;
+  background-image: url(Imagenes/imagen7.jpg);
 }
 /*ANIMACIONM AL INICIAR */
 .hero h1,
@@ -294,7 +296,7 @@ body {
 /**/
 .hero h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 10rem; /* ajusta según tu diseño */
+  font-size: 8rem; /* ajusta según tu diseño */
   font-weight: 400; /* más delgado y elegante */
   color: var(--accent);
   letter-spacing: 1px; /* le da un toque fino */
@@ -1131,7 +1133,8 @@ footer {
   height: 400px;
   background: url("Imagenes/ffffffff.png") no-repeat;
   background-size: contain;
-  opacity: 0.3; /* Transparencia */
+  opacity: 0.3;
+  pointer-events: none; /* 🔥 EVITA BLOQUEAR CLICKS */
 }
 
 /* Flor esquina superior derecha */
@@ -1146,6 +1149,7 @@ footer {
   background-size: contain;
   transform: rotate(180deg); /* Voltear para que no sea igual */
   opacity: 0.3;
+  pointer-events: none;
 }
 
 
@@ -1216,8 +1220,12 @@ img {
 
 @media (max-width: 991px) {
   .hero { padding: 20px; margin-top: 70px; }
-  .hero p { font-size: 1rem; }
+  .hero {background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+  url(Imagenes/imagen7.jpg), center/cover no-repeat; }
+  .hero p { font-size: 0.72rem; }
+  .countdown {gap: 8px;}
   .countdown span { font-size: 2rem; }
+  .hero p strong {font-size: 1rem;}
   .novio { flex-direction: column; gap: 18px; }
   .novio-imagen { width: 90%; height: auto; max-width: 420px; }
   .foto-galeria { width: 180px; height: 240px; }
