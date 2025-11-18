@@ -876,7 +876,7 @@ select:focus {
 .descripcion-ubicacion {
   max-width: 700px;
   margin: 0 auto 30px;
-  font-size: 28px;
+  font-size: 20px;
   line-height: 1.8;
 }
 
@@ -940,7 +940,6 @@ footer {
 
 /*SECCION REGALOS*/
 /* --- Sección de Regalos --- */
-/* --- Sección de Regalos --- */
 .regalos {
   background-color: white;
   text-align: center;
@@ -960,6 +959,7 @@ footer {
   margin: 0 auto 50px;
   line-height: 1.6;
 }
+
 
 /* Contenedor de cuentas bancarias */
 .imagen-ubicacion1{
